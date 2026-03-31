@@ -35,7 +35,7 @@ function App() {
           type="radio"
           name="my_tabs_1"
           className="tab"
-          aria-label="Carts"
+          aria-label={`Cart (${carts.length})`}
           onClick={() => setActiveTab("cart")}
         />
       </div>

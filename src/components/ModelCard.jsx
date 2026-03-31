@@ -10,6 +10,11 @@ const ModelCard = ({ model, carts, setCarts }) => {
 
   const handleSubscription = () => {
     setisSubscribed(true);
+    const isFound = carts.find((item) => item.id === model.id);
+    if (isFound) {
+      alert("Item already in cart");
+      return;
+    }
     setCarts([...carts, model]);
   };
   return (
