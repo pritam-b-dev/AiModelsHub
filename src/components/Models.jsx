@@ -1,7 +1,7 @@
 import React, { use } from "react";
 import ModelCard from "./ModelCard";
 
-const Models = ({ modelPromise }) => {
+const Models = ({ modelPromise, carts, setCarts }) => {
   const modelsArray = use(modelPromise);
 
   return (
@@ -15,7 +15,12 @@ const Models = ({ modelPromise }) => {
         </p>
         <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-10 items-start">
           {modelsArray.map((model) => (
-            <ModelCard key={model.id} model={model}></ModelCard>
+            <ModelCard
+              key={model.id}
+              model={model}
+              carts={carts}
+              setCarts={setCarts}
+            ></ModelCard>
           ))}
         </div>
       </div>

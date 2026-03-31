@@ -4,8 +4,14 @@ import { FaFireAlt } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 import { CiStar } from "react-icons/ci";
 
-const ModelCard = ({ model }) => {
+const ModelCard = ({ model, carts, setCarts }) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isSubscribed, setisSubscribed] = useState(false);
+
+  const handleSubscription = () => {
+    setisSubscribed(true);
+    setCarts([...carts, model]);
+  };
   return (
     <div className=" border border-zinc-400 shadow-md rounded-lg">
       <div className="flex justify-center items-center h-44 w-full bg-gray-50 p-8 rounded-lg relative group">
@@ -58,8 +64,11 @@ const ModelCard = ({ model }) => {
             </span>
           )}
         </p>
-        <button className="btn btn-secondary w-full rounded-lg">
-          Subscribe Now
+        <button
+          onClick={handleSubscription}
+          className="btn btn-secondary w-full rounded-lg"
+        >
+          {isSubscribed ? "Subscribed" : "Subscribe Now"}
         </button>
       </div>
     </div>
